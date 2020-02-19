@@ -3,41 +3,48 @@
 The purpose of the AOS is to optimize the image quality across the field by controlling the surface figures
 of the mirrors (M1M3 and M2) and to maintain the relative position of the three optical systems
 (M1M3 mirror, M2 mirror and the camera).
-The mirror surfaces are adjusted by means of figure control actuators that support the mirrors.
-Although they are commonly called ``figure control actuators'' the majority of their load is utilized to
-support the mirrors against the forces of gravity. The relative rigid body positions of M1M3, M2 and
-the camera are controlled through the M2 and Camera hexapods.
-The M2 and the Camera are positioned relative to the M1M3.
+
+This section provides an overview of the open-loop and closed-loop AOS operations, including
+Look-Up Tables,
+mirror positioning, hard points, mirror Force Balance Systems,
+Control strategy and image quality error budget.
+
+% The mirror surfaces are adjusted by means of figure control actuators that support the mirrors.
+% Although they are commonly called ``figure control actuators'' the majority of their load is utilized to
+% support the mirrors against the forces of gravity. The relative rigid body positions of M1M3, M2 and
+% the camera are controlled through the M2 and Camera hexapods.
+% The M2 and the Camera are positioned relative to the M1M3.
 
 
-The AOS is principally operated off of a Look-Up Table (LUT).
-The LUT provides open loop, near optimum values for all actuator forces and hexapod positions.
-The LUT values vary principally with elevation angle and secondarily with temperature.
+% The AOS is principally operated off of a Look-Up Table (LUT).
+% The LUT provides open loop, near optimum values for all actuator forces and hexapod positions.
+% The LUT values vary principally with elevation angle and secondarily with temperature.
 
-Although the LUT values are near optimum, as a result of non-repeatable effects,
-they are inadequate to reach the image quality requirements. These effects include temperature
-distributions on the telescope structure and mirrors along with wind loading and hysteresis.
-Corrections are added to the LUT values based on wavefront measurements from the wavefront sensors
-in the camera's focal plane.
+% Although the LUT values are near optimum, as a result of non-repeatable effects,
+% they are inadequate to reach the image quality requirements. These effects include temperature
+% distributions on the telescope structure and mirrors along with wind loading and hysteresis.
+% Corrections are added to the LUT values based on wavefront measurements from the wavefront sensors
+% in the camera's focal plane.
 
-The position of the mirrors relative to their mirror cells is controlled with hard points.
-The proper load is maintained in the hard points by applying distributed loads through the figure control
-actuators in the form of correction added to the LUT values. Since the wavefront correction
-is intended to bend the mirror and apply no net forces and the force balance correction is intended to
-produce specific sets of net forces without bending the mirror, the two systems are compatible and
-can operate simultaneously.
+% The position of the mirrors relative to their mirror cells is controlled with hard points.
+% The proper load is maintained in the hard points by applying distributed loads through the figure control
+% actuators in the form of correction added to the LUT values. Since the wavefront correction
+% is intended to bend the mirror and apply no net forces and the force balance correction is intended to
+% produce specific sets of net forces without bending the mirror, the two systems are compatible and
+% can operate simultaneously.
 
-The force balance offset is added along with the wavefront correction to the LUT values.
-To allow more rapid responses, the force balance is accomplished directly by the mirror support control systems.
-This allows the force balance to accommodate dynamic loading and the quasi-static component of wind loading.
+% The force balance offset is added along with the wavefront correction to the LUT values.
+% To allow more rapid responses, the force balance is accomplished directly by the mirror support control systems.
+% This allows the force balance to accommodate dynamic loading and the quasi-static component of wind loading.
 
-Control strategy and image quality error budget
+% Control strategy and image quality error budget
 
-Operational considerations
+% Operational considerations
 
 \section{Active Optics Hardware Performance}
 
-Short summaries only. More details presented in the another construction paper~\cite{PSTN-032}.
+This section gives a very brief summary of AOS hardware performance.
+Readers are referred to other construction papers (\cite{PSTN-006}, \cite{PSTN-046}, and \cite{PSTN-011}) for more details.
 
 M1M3 mirror and cell assembly: Mirror Lab testing, M3 in-situ
 
@@ -45,39 +52,53 @@ M2 mirror and cell assembly: testing at Harris and summit
 
 Hexapods and camera rotator: Moog testing and summit re-verification
 
-mention IOTA?
+Corner raft wavefront sensor performance
+
+% mention IOTA?
 
 Alignment System performance
 
+Refer to \cite{PSTN-032} for general LSST system performance.
+
 \section{Curvature Wavefront Sensing}
 
-Short summary only, design considerations, FFT and EXP algorithms, refer to Applied Optics paper.
+First, provide an one-paragraph summary on wavefront sensing, touching on
+design considerations, FFT and EXP algorithms, refer to Applied Optics~\cite{2015ApOpt..54.9045X}.
 
-Show real example, including image processing, donuts, cwfs output.
+The rest of this section shows some real-world examples,
+demostrating wavefront sensor image processing, source selection, donut de-blending, and wavefront sensing Zernike measurements.
 
 \section{State Estimation and Control}
 
-bending modes, optical sensitivity matrix, and their evolutions
+Here we talk about optical sensitivity matrix,
+M1M3 and M2 bending modes, and their evolutions.
 
-State estimator, optimal controller, matrix truncation etc.
-
-Performance of various control strategies
-
-discuss field variations of the Zernikes, and compare to aberration theory predictions (Schechter)
+Then we talk about the optical state estimator, the optimal controller, sensitivity matrix truncation,
+and system observability and controllability. Refer to \cite{2014SPIE.9150E..0HA}
 
 \section{Look-Up Table Construction and Operation}
 
-Started from FEA, refined by optical testing, IOTA, ComCam, eventually LSSTCam
+Here we discuss the evolution of the LUTs throughout construction and commissioning.
+We started from Finite-Element based LUTs, then went through a few rounds of refinements via component-level optical testing, On-Axis calibration, ComCam, eventually LSSTCam which covers the full field.
 
 \section{Image Quality and Ellipticity Performance}
 
-Give quick examples from ComCam and LSSTCam.
+Give quick examples from ComCam~\cite{PSTN-033} and LSSTCam~\cite{PSTN-034}.
 
-Refer to~\cite{PSTN-032}.
+Also refer to \cite{PSTN-004} and \cite{PSTN-032} for performance.
+
+Discuss AOS performance under various control strategies.
+
+Discuss field variations of the Zernikes, and compare to aberration theory predictions
+(\cite{2011PASP..123..812S, 2012SPIE.8444E..55S}).
+
 
 \section{Simulations and Early Testing with other Telescopes}
 
-Role of simulations in system development.
+Role of simulations in system development, refer to simulation and modeling
+papers~\cite{2012SPIE.8444E..4PC,2016SPIE.9911E..18A, 2018SPIE10705E..0PX}.
+
+Early testing with data from other telescopes, for example, \cite{2016SPIE.9906E..4JX}
 
 Reconciliation of simulated performance vs measured performance.
 
@@ -85,5 +106,5 @@ Reconciliation of simulated performance vs measured performance.
 
 The AOS has been working reliably since xxx 2021.
 
-Further explorations: forward modeling, machine learning.
+Future explorations: forward modeling, machine learning.
 
